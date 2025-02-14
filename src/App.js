@@ -290,14 +290,16 @@ function Frame2({ id, name, author, bg, radius = 30, children, ...props }) {
 
 function Rig({ position = new THREE.Vector3(0, 0, 50), focus = new THREE.Vector3(0, 0, 0) }) {
   const { controls, scene } = useThree()
-  const [, params] = useRoute('/item/:id') || useRoute('/item/01/:id')
+  const [, params] = useRoute('/item/:id')
   useEffect(() => {
     const active = scene.getObjectByName(params?.id)
     if (active) {
       active.parent.localToWorld(position.set(0, 0, 30)) // this is how far the camera is gonna be after going into the portal
       active.parent.localToWorld(focus.set(0, 0, -2))
     }
-    controls?.setLookAt(...position.toArray(), ...focus.toArray(), true)
+    if (controls) {
+      controls.setLookAt(...position.toArray(), ...focus.toArray(), true);
+    }
   })
   return <CameraControls makeDefault minPolarAngle={0} maxPolarAngle={Math.PI / 2} />
 }
