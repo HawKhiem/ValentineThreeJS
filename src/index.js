@@ -1,7 +1,7 @@
+import React from 'react';
 import { createRoot } from 'react-dom/client'
 import { useRoute, useLocation } from 'wouter'
 import './styles.css'
-import { Logo } from '@pmndrs/branding'
 import { App } from './App'
 
 function Root() {
