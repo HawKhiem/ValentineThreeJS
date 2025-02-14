@@ -61,7 +61,9 @@ function Root() {
           }}
         >
           <p>
-            Hold the left mouse button and scroll around to explore.
+            Hold the left mouse button and scroll to change camera view.
+            <br />
+            Hold the right mouse button and scroll to change camera position.
             <br />
             Zoom in and out using the scroll wheel or touch pad.
           </p>
